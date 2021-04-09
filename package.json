@@ -1,0 +1,31 @@
+{
+  "name": "fancy-scheduler",
+  "version": "0.1.5",
+  "description": "Fancy Scheduler based on node-schedule",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "keywords": [
+    "node-schedule",
+    "scheduler",
+    "typescript"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mahdi Shiri <mahdi.shiri@outlook.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/O-Q/fancy-scheduler.git"
+  },
+  "devDependencies": {
+    "@types/node-schedule": "^1.3.1",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "node-schedule": "^2.0.0"
+  }
+}
