@@ -1,17 +1,17 @@
 {
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"],
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2015",
     "declaration": true,
-    "outDir": "./dist/",
-    "rootDir": "./src",
-    "strict": true,
     "noImplicitAny": false,
-    "strictNullChecks": false,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "noUnusedLocals": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "dist",
+    "lib": ["es7"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

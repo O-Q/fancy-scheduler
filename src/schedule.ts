@@ -1,24 +1,30 @@
-import schedule, { cancelJob, Job, rescheduleJob, JobCallback, RecurrenceRule } from 'node-schedule';
+import { cancelJob, Job, Range, rescheduleJob, JobCallback, RecurrenceRule } from 'node-schedule';
 import { IRange, ISchedule, ScheduleOptions, RecurrenceSegment, ScheduleId } from "./types";
 import { extractJobArgs } from "./utils/_extract-args";
-export { cancelJob };
 
 
 export class Schedule {
     /**
      * default timezone
      */
-    static DEFAULT_TZ: string = null;
+    static get DEFAULT_TZ(): string {
+        return Schedule.DEFAULT_OPTIONS.tz;
+    };
+
+    static set DEFAULT_TZ(tz: string) {
+        Schedule.DEFAULT_OPTIONS.tz = tz;
+    }
+
+
 
     private static DEFAULT_OPTIONS: ISchedule = {
-        tz: Schedule.DEFAULT_TZ, hour: null, year: null, date: null, dayOfWeek: null, minute: null, month: null, second: 0
+        tz: null, hour: null, year: null, date: null, dayOfWeek: null, minute: null, month: null, second: 0
     };
 
     /**
      * change the default value of properties in fancy `options`
      */
     static config(options: ISchedule) {
-        if (options.tz) this.DEFAULT_TZ = options.tz;
         Schedule.DEFAULT_OPTIONS = { ...Schedule.DEFAULT_OPTIONS, ...options };
     }
 
@@ -70,7 +76,7 @@ export class Schedule {
             }
         }
         const { start, end, step } = { start: _start, end: _end, step: null, ...options };
-        return new schedule.Range(start, end, step);
+        return new Range(start, end, step);
     }
 
 

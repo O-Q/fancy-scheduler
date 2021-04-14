@@ -16,3 +16,4 @@ const extractJobArgs = (args) => {
     return { options, name, callback };
 };
 exports.extractJobArgs = extractJobArgs;
+//# sourceMappingURL=_extract-args.js.map
